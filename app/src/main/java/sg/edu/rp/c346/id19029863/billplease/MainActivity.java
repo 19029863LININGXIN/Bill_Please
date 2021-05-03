@@ -2,6 +2,8 @@ package sg.edu.rp.c346.id19029863.billplease;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
     ToggleButton gst;
     EditText discount;
     RadioGroup rgPay;
-    ToggleButton split;
-    ToggleButton reset;
+    Button split;
+    Button reset;
     TextView totalBill;
     TextView eachpay;
-    Button Cash;
-    Button Paynow;
+    TextView error;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
         rgPay = findViewById(R.id.rgPay);
         totalBill = findViewById(R.id.totalBill);
         eachpay = findViewById(R.id.eachpay);
-        Cash = findViewById(R.id.cash);
-        Paynow = findViewById(R.id.paynow);
+        error = findViewById(R.id.ErrorMessage);
 
         split.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
                 // Code for the action
@@ -77,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }else{
                         eachpay.setText("Each Pays : $" + String.format("%.2f", newAmount ));
-
                     }
-                }
 
+                }else{
+                    error.setText("Invalid input");
+                }
             }
         });
 
