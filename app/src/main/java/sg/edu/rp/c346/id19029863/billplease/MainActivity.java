@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     TextView totalBill;
     TextView eachpay;
     TextView error;
+    RadioButton cash;
 
 
     @Override
@@ -42,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         totalBill = findViewById(R.id.totalBill);
         eachpay = findViewById(R.id.eachpay);
         error = findViewById(R.id.ErrorMessage);
+        cash = findViewById(R.id.cash);
 
-        split.setOnClickListener(new View.OnClickListener() {
+
+                split.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 discount.setText("");
                 svs.setChecked(false);
                 gst.setChecked(false);
+                cash.setChecked(true);
             }
 
         });
